@@ -101,6 +101,7 @@ namespace ITicket.Controllers
             Usuario usuario = context.Usuarios.Find(id);
             context.Usuarios.Remove(usuario);
             context.SaveChanges();
+            TempData["Message"] = "Usuario" +" "+ usuario.Nome.ToUpper() + " " + "Foi Removido com sucesso!";
             return RedirectToAction("Index");
         }
 

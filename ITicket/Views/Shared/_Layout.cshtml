@@ -21,13 +21,9 @@
         <div class="row">
             <div class="col-xs-3 col-md-3 bg-success">
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation">
-                        @Html.ActionLink("Empresas", "Index", "Empresas")
-                    </li>
-                    <li role="presentation">
-                        @Html.ActionLink("Usuarios", "Index", "Usuarios")
-                    </li>
+                    <li id="liHome" role="presentation" class="active"><a href="#">Home</a></li>
+                    <li id="liEmpresas" role="presentation"> @Html.ActionLink("Empresas", "Index", "Empresas")</li>
+                    <li id="liUsuarios" role="presentation"> @Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
                 </ul>
             </div>
             <div class="col-xs-9 col-md-9">
