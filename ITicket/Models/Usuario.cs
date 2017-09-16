@@ -7,11 +7,11 @@ namespace ITicket.Models
 {
     public class Usuario
     {
-        private long UsuarioID { get; set; }
-        private string Nome { get; set; }
-        private string Email { get; set; }
-        private string Senha { get; set; }
-        private string Telefone { get; set; }
-        private string Ticket { get; set; }
+        public long UsuarioID { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public string Telefone { get; set; }
+        public string Ticket { get; set; }
     }
 }

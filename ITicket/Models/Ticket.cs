@@ -7,14 +7,14 @@ namespace ITicket.Models
 {
     public class Ticket
     {
-        private long TicketID { get; set; }
-        private string NomeEmpresa { get; set; }
-        private string EnderecoEmpresa { get; set; }
-        private string NomeCliente { get; set; }
-        private string Produto { get; set; }
-        private DateTime DataImpressao { get; set; }
-        private DateTime DataFinalizacao { get; set; }
-        private int CodigoTicket { get; set; }
-        private string Anotacao { get; set; }
+        public long TicketID { get; set; }
+        public string NomeEmpresa { get; set; }
+        public string EnderecoEmpresa { get; set; }
+        public string NomeCliente { get; set; }
+        public string Produto { get; set; }
+        public DateTime DataImpressao { get; set; }
+        public DateTime DataFinalizacao { get; set; }
+        public int CodigoTicket { get; set; }
+        public string Anotacao { get; set; }
     }
 }

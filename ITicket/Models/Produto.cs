@@ -7,9 +7,9 @@ namespace ITicket.Models
 {
     public class Produto
     {
-        private long ProdutoID { get; set; }
-        private string Nome { get; set; }
-        private string Descricao { get; set; }
-        private double Preco { get; set; }
+        public long ProdutoID { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public double Preco { get; set; }
     }
 }

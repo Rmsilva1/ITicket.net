@@ -7,15 +7,15 @@ namespace ITicket.Models
 {
     public class Empresa
     {
-        private long EmpresaID { get; set; }
-        private string Nome { get; set; }
-        private string Email { get; set; }
-        private string Senha { get; set; }
-        private int Cnpj { get; set; }
-        private string Telefone { get; set; }
-        private string Logradouro { get; set; }
-        private string Endereco { get; set; }
-        private string Setor { get; set; }
-        private string Produto { get; set; }
+        public long EmpresaID { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public int Cnpj { get; set; }
+        public string Telefone { get; set; }
+        public string Logradouro { get; set; }
+        public string Endereco { get; set; }
+        public string Setor { get; set; }
+        public string Produto { get; set; }
     }
 }
