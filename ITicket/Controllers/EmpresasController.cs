@@ -10,13 +10,13 @@ using System.Web.Mvc;
 
 namespace ITicket.Controllers
 {
-    public class UsuariosController : Controller
+    public class EmpresasController : Controller
     {
         private EFContext context = new EFContext();
-        // GET: Usuarios
+
         public ActionResult Index()
         {
-            return View(context.Usuarios.OrderBy(c => c.Nome));
+            return View(context.Empresas.OrderBy(c => c.Nome));
         }
 
         public ActionResult Create()
@@ -26,9 +26,9 @@ namespace ITicket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Empresa empresa)
         {
-            context.Usuarios.Add(usuario);
+            context.Empresas.Add(empresa);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -39,25 +39,25 @@ namespace ITicket.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = context.Usuarios.Find(id);
-            if (usuario == null)
+            Empresa empresa = context.Empresas.Find(id);
+            if (empresa == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(empresa);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(Empresa empresa)
         {
             if (ModelState.IsValid)
             {
-                context.Entry(usuario).State = EntityState.Modified;
+                context.Entry(empresa).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(empresa);
         }
 
         public ActionResult Details(long? id)
@@ -67,13 +67,13 @@ namespace ITicket.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Usuario usuario = context.Usuarios.Find(id);
+            Empresa empresa = context.Empresas.Find(id);
 
-            if (usuario == null)
+            if (empresa == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(empresa);
         }
 
         public ActionResult Delete(long? id)
@@ -83,14 +83,14 @@ namespace ITicket.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Usuario usuario = context.Usuarios.Find(id);
+            Empresa empresa = context.Empresas.Find(id);
 
-            if (usuario == null)
+            if (empresa == null)
             {
                 return HttpNotFound();
             }
 
-            return View(usuario);
+            return View(empresa);
         }
 
         [HttpPost]
@@ -98,8 +98,8 @@ namespace ITicket.Controllers
         public ActionResult Delete(long id)
         {
 
-            Usuario usuario = context.Usuarios.Find(id);
-            context.Usuarios.Remove(usuario);
+            Empresa empresa = context.Empresas.Find(id);
+            context.Empresas.Remove(empresa);
             context.SaveChanges();
             return RedirectToAction("Index");
         }

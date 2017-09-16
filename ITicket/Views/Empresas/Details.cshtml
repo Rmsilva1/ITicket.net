@@ -1,0 +1,98 @@
+﻿@model ITicket.Models.Empresa
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Empresa</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Senha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Senha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Cnpj)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Logradouro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Endereco)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Setor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Setor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Produto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Produto)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EmpresaID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
