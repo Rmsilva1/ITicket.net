@@ -58,7 +58,7 @@
         <input type="submit"
                value="Adicionar Usuario"
                class="btn btn-danger"/>
-        @Html.ActionLink("Retornar para a listagem de Usuarios","Index", null, new { @class = "btn btn-warning"})
+        @Html.ActionLink("Voltar","Index", null, new { @class = "btn btn-default" })
     </div>
     <br />
     <br />
@@ -71,4 +71,11 @@
         </script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js">
         </script>
+<script type="text/javascript">
+          $(document).ready(function () {
+              $('li').removeClass("active");
+              $('#liUsuarios').addClass("active");
+          });
+</script>
+
 }

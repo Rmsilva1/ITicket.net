@@ -10,7 +10,6 @@
         @TempData["Message"]
     </div>
 }
-
 <div class="panel panel-primary">
     <div class="panel-heading">
         Relação	de Usuarios registrados
@@ -39,9 +38,9 @@
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.ActionLink("Alterar", "Edit", new { id = item.UsuarioID }) |
+                            @Html.ActionLink("Editar", "Edit", new { id = item.UsuarioID }) |
                             @Html.ActionLink("Detalhes", "Details", new { id = item.UsuarioID }) |
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.UsuarioID })
+                            @Html.ActionLink("Deletar", "Delete", new { id = item.UsuarioID })
                         </td>
                     </tr>
                   }
@@ -64,6 +63,7 @@
     <script type="text/javascript">
         $(document).ready(function () {$('.table').dataTable();});
   </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('li').removeClass("active");
