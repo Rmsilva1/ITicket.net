@@ -10,7 +10,6 @@ namespace ITicket.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ITicket.Contexts.EFContext";
         }
 
         protected override void Seed(ITicket.Contexts.EFContext context)
