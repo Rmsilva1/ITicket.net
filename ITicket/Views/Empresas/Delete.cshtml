@@ -1,104 +1,58 @@
-﻿@model ITicket.Models.Empresa
-
+@model	ITicket.Models.Empresa
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando detalhes de uma Empresa";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Empresa</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Senha)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Senha)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Cnpj)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Cnpj)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Telefone)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Logradouro)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Logradouro)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Endereco)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Setor)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Setor)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Produto)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Produto)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Dados da Empresa a ser removida
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome)<br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon	glyphicon-user">
+                    </i>
+                </span>
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
             </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email)<br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon	glyphicon-user">
+                    </i>
+                </span>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cnpj)<br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon	glyphicon-user">
+                    </i>
+                </span>
+                @Html.EditorFor(model => model.Cnpj, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer	panel-info">
+        @using (Html.BeginForm())
+        {
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn	btn-default" })
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Deletar Empresa" class="btn btn-danger" />
         }
     </div>
-</body>
-</html>
+</div>
+@section ScriptPage{
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('li').removeClass("active");
+        $('#liEmpresas').addClass("active");
+    });
+    </script>
+}
