@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ITicket.Models.Empresa>
+@model IEnumerable<ITicket.Models.Empresa>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -39,9 +39,9 @@
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.ActionLink("Alterar", "Edit", new { id = item.EmpresaID}) |
+                            @Html.ActionLink("Editar", "Edit", new { id = item.EmpresaID}) |
                             @Html.ActionLink("Detalhes", "Details", new { id = item.EmpresaID }) |
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.EmpresaID })
+                            @Html.ActionLink("Deletar", "Delete", new { id = item.EmpresaID })
                         </td>
                     </tr>
                 }
