@@ -29,7 +29,8 @@
             </thead>
             <tbody>
                 @foreach (var item in Model)
-                  {
+                {
+                    ;
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.UsuarioID)
@@ -51,8 +52,6 @@
         @Html.ActionLink("Registrar um novo Usuario", "Create", null, new { @class = "btn btn-success" })
     </div>
 </div>
-
-
 @section styles{
     <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
 }
