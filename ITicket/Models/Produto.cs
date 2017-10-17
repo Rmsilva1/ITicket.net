@@ -11,5 +11,12 @@ namespace ITicket.Models
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public double Preco { get; set; }
+
+        public long? EmpresaID { get; set;}
+
+        public Empresa Empresa { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
+
     }
 }

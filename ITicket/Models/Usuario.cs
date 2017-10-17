@@ -12,6 +12,10 @@ namespace ITicket.Models
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Telefone { get; set; }
-        public string Ticket { get; set; }
+
+        //Relação
+        public long? ticketID { get; set; } 
+
+        public Ticket Ticket { get; set; }
     }
 }
