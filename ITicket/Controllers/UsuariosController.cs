@@ -32,13 +32,12 @@ namespace ITicket.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(UsuarioViewModel usuario)
         {
-            //gambi
-            usuario.SenhaConfirmacao = "";
-            usuario.Senha = "  ";
+
             if (!ModelState.IsValid || !usuario.confirmarSenhasIguais())
-            {
+            { 
                 return View(usuario);
-            }else{
+            }
+            else{
                 context.Usuarios.Add((Usuario)usuario);
                 context.SaveChanges();
                 return RedirectToAction("Index");
