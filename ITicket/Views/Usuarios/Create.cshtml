@@ -1,4 +1,4 @@
-﻿@model	ITicket.Models.Usuario
+﻿@model	ITicket.Models.UsuarioViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,9 +10,9 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            Registro um novo Usuario
+            Registro de um novo Usuario
         </div>
 
         <div class="panel-body">
@@ -43,6 +43,14 @@
                 </div>
             </div>
 
+                 <div class="form-group">
+                @Html.LabelFor(model => model.SenhaConfirmacao, htmlAttributes: new { @class = "control-label col -md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.SenhaConfirmacao, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SenhaConfirmacao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
             <div class="form-group">
             @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col -md-2" })
             <div class="col-md-10">
@@ -57,7 +65,7 @@
     <div class="col-md-offset-2 col-md-10">
         <input type="submit"
                value="Adicionar Usuario"
-               class="btn btn-danger"/>
+               class="btn btn-primary"/>
         @Html.ActionLink("Voltar","Index", null, new { @class = "btn btn-default" })
     </div>
     <br />

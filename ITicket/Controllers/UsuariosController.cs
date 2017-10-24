@@ -13,6 +13,10 @@ namespace ITicket.Controllers
     public class UsuariosController : Controller
     {
         private EFContext context = new EFContext();
+        
+        UsuarioViewModel usuarioViewModel { get; set; }
+
+        
         // GET: Usuarios
         public ActionResult Index()
         {
@@ -26,11 +30,20 @@ namespace ITicket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(UsuarioViewModel usuario)
         {
-            context.Usuarios.Add(usuario);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            //gambi
+            usuario.SenhaConfirmacao = "";
+            usuario.Senha = "  ";
+            if (!ModelState.IsValid || !usuario.confirmarSenhasIguais())
+            {
+                return View(usuario);
+            }else{
+                context.Usuarios.Add((Usuario)usuario);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+      
         }
 
         public ActionResult Edit(long? id)
@@ -39,7 +52,7 @@ namespace ITicket.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = context.Usuarios.Find(id);
+            var usuario = (UsuarioViewModel)context.Usuarios.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -49,11 +62,11 @@ namespace ITicket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(UsuarioViewModel usuario)
         {
             if (ModelState.IsValid)
             {
-                context.Entry(usuario).State = EntityState.Modified;
+                context.Entry((Usuario)usuario).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,7 +80,7 @@ namespace ITicket.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Usuario usuario = context.Usuarios.Find(id);
+            var usuario = context.Usuarios.Find(id);
 
             if (usuario == null)
             {
@@ -83,7 +96,7 @@ namespace ITicket.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Usuario usuario = context.Usuarios.Find(id);
+            var usuario = context.Usuarios.Find(id);
 
             if (usuario == null)
             {
