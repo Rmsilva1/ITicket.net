@@ -10,99 +10,117 @@ using System.Web.Mvc;
 
 namespace ITicket.Controllers
 {
-    public class ProdutosController : Controller
+public class ProdutosController : Controller
+{
+    private EFContext context = new EFContext();
+
+    public ActionResult Index()
     {
-        private EFContext context = new EFContext();
+        var produtos = context.Produtos.Include(e => e.Empresa).OrderBy(n => n.Nome);
+        return View(produtos);
+    }
 
-        public ActionResult Index()
-        {
-            return View(context.Produtos.OrderBy(c => c.Nome));
-        }
+    public ActionResult Create()
+    {
+        ViewBag.EmpresaId = new SelectList(context.Empresas.OrderBy(b => b.Nome), "EmpresaId", "Nome");
+        return View();
+    }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create(Produto produto)
+    {
+        try{
+                          
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Produto produto)
-        {
-            context.Produtos.Add(produto);
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        context.Produtos.Add(produto);
+        context.SaveChanges();
+        return RedirectToAction("Index");
 
-        public ActionResult Edit(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Produto produto = context.Produtos.Find(id);
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
+        }catch{
             return View(produto);
         }
+    }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Produto produto)
+
+
+        public ActionResult Edit(long? id)
+    {
+        if (id == null)
         {
-            if (ModelState.IsValid)
-            {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+        Produto produto = context.Produtos.Find(id);
+        if (produto == null)
+        {
+            return HttpNotFound();
+        }
+
+        ViewBag.EmpresaId = new SelectList(context.Empresas.OrderBy(b => b.Nome), "EmpresaId", "Nome");
+        return View(produto);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit(Produto produto)
+    {
+        try{
+            if (ModelState.IsValid){
                 context.Entry(produto).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
+        return View(produto);
+
+        }catch{
             return View(produto);
         }
-
-        public ActionResult Details(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Produto produto = context.Produtos.Find(id);
-
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produto);
-        }
-
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Produto produto = context.Produtos.Find(id);
-
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(produto);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(long id)
-        {
-
-            Produto produto = context.Produtos.Find(id);
-            context.Produtos.Remove(produto);
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
     }
+    
+
+    public ActionResult Details(long? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        Produto produto = context.Produtos.Find(id);
+
+        if (produto == null)
+        {
+            return HttpNotFound();
+        }
+        return View(produto);
+    }
+
+    public ActionResult Delete(long? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        Produto produto = context.Produtos.Find(id);
+
+        if (produto == null)
+        {
+            return HttpNotFound();
+        }
+
+        return View(produto);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Delete(long id)
+    {
+
+        Produto produto = context.Produtos.Find(id);
+        context.Produtos.Remove(produto);
+        context.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+}
 }

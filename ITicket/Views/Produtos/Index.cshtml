@@ -28,6 +28,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Preco)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Empresa.Nome)
+                    </th>
+
                     <th></th>
                 </tr>
             </thead>
@@ -43,6 +47,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Preco)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Empresa.Nome)
                         </td>
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.ProdutoID }) |
