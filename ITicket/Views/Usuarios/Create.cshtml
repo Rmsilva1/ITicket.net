@@ -4,13 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Registrando um	Novo Usuario";
 }
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="margin-top:3%">
         <div class="panel-heading">
             Registro de um novo Usuario
         </div>
@@ -18,56 +16,54 @@
         <div class="panel-body">
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col -md-2" })
-                    <div class="col-md-10">
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col -md-2" })
+               <div class="form-group">
+                    <div class="col-md-4">
                         @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col -md-2" })
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col -md-2" })
-                    <div class="col-md-10"> 
+                    <div class="col-md-4"> 
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" }, required = "required" })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
+                @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col -md-2" })
+
 
                 <div class="form-group">
-                @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col -md-2" })
-                <div class="col-md-10">
+                <div class="col-md-4">
                     @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
                 </div>
             </div>
+                @Html.LabelFor(model => model.SenhaConfirmacao, htmlAttributes: new { @class = "control-label col -md-2" })
+
 
             <div class="form-group">
-                @Html.LabelFor(model => model.SenhaConfirmacao, htmlAttributes: new { @class = "control-label col -md-2" })
-                <div class="col-md-10">
+                <div class="col-md-4">
                     @Html.PasswordFor(model => model.SenhaConfirmacao,new { htmlAttributes = new { @class = "form-control", required = "required"} })
                     @Html.ValidationMessageFor(model => model.SenhaConfirmacao, "", new { @class = "text-danger" })
                 </div>
             </div>
+                @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col -md-2" })
+
 
             <div class="form-group">
-            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col -md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
-
         </div>
     </div>
     <div class="panel-footer panel-info">
         <input type="submit"
                value="Adicionar Usuario"
                class="btn btn-primary"/>
-        @Html.ActionLink("Voltar","Index", null, new { @class = "btn btn-default" })
-    <br />
-    <br />
+        @Html.ActionLink("Voltar","Index", null, new { @class = "btn btn-primary" })
     </div>
 </div>
 }

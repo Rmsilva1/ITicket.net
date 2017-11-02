@@ -45,6 +45,7 @@ namespace ITicket.Controllers
       
         }
 
+       
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -61,11 +62,11 @@ namespace ITicket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UsuarioViewModel usuario)
+        public ActionResult Edit(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                context.Entry((Usuario)usuario).State = EntityState.Modified;
+                context.Entry(usuario).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

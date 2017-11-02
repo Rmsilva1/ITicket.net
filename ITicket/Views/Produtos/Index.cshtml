@@ -11,7 +11,7 @@
         @TempData["Message"]
     </div>
 }
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-top:3%">
     <div class="panel-heading">
         Relacao	de Produtos Registrados
     </div>
@@ -20,10 +20,13 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProdutoID)
+                        @Html.DisplayNameFor(model => model.Nome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nome)
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Preco)
                     </th>
                     <th></th>
                 </tr>
@@ -33,14 +36,17 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ProdutoID)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Preco)
+                        </td>
+                        <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.ProdutoID }) |
-                            @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoID }) |
+                            @Html.ActionLink("Detalhar", "Details", new { id = item.ProdutoID }) |
                             @Html.ActionLink("Deletar", "Delete", new { id = item.ProdutoID })
                         </td>
                     </tr>
@@ -67,7 +73,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('li').removeClass("active");
-            $('#liEmpresas').addClass("active");
+            $('#liProdutos').addClass("active");
         });
     </script>
 }
