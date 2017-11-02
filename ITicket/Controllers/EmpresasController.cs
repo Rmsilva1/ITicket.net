@@ -67,7 +67,7 @@ namespace ITicket.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Empresa empresa = context.Empresas.Find(id);
+            Empresa empresa = context.Empresas.Where(e => e.EmpresaID == id).Include("Produtos").First(); 
 
             if (empresa == null)
             {

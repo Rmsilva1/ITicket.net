@@ -17,7 +17,7 @@ namespace ITicket.Models
         public string Endereco { get; set; }
         public string Setor { get; set; }
 
-        public virtual ICollection<Ticket> Ticket { get; set; }
-        public virtual ICollection<Produto> Produto { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Produto> Produtos { get; set; }
     }
 }

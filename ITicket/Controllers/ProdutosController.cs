@@ -85,7 +85,7 @@ public class ProdutosController : Controller
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-        Produto produto = context.Produtos.Find(id);
+            Produto produto = context.Produtos.Where(p => p.ProdutoID == id).Include(e => e.Empresa).First();
 
         if (produto == null)
         {
@@ -115,8 +115,7 @@ public class ProdutosController : Controller
     [ValidateAntiForgeryToken]
     public ActionResult Delete(long id)
     {
-
-        Produto produto = context.Produtos.Find(id);
+        Produto produto = context.Produtos.Where(p => p.ProdutoID == id).Include(e => e.Empresa).First();
         context.Produtos.Remove(produto);
         context.SaveChanges();
         return RedirectToAction("Index");

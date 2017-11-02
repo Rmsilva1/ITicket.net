@@ -94,8 +94,11 @@
     <div class="panel-footer panel-info">
         @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
         @Html.ActionLink("Editar", "Edit", new { id = Model.EmpresaID}, new { @class = "btn btn-primary" })
-    </div>
+    </div>	.
 </div>
+
+    @Html.Partial("~/Views/Produtos/_PorEmpresa.cshtml",
+    Model.Produtos.ToList())
 
 @section ScriptPage	{
     <script type="text/javascript">
