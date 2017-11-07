@@ -339,6 +339,7 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="JS\Mascara.js" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ITicket.csproj.CopyComplete" />
     <Content Include="obj\Debug\ITicket.csproj.CoreCompileInputs.cache" />
