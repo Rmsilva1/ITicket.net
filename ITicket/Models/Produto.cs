@@ -11,9 +11,8 @@ namespace ITicket.Models
         public long ProdutoID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        [DataType(DataType.Currency)]
         public double Preco { get; set; }
-        public long? EmpresaID { get; set;}
+        public long? EmpresaID { get; set; }
         public Empresa Empresa { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }

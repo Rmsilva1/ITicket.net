@@ -56,10 +56,11 @@
         </div>
     </div>
     <div class="panel-footer panel-info">
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+
         <input type="submit"
                value="Adicionar Usuario"
                class="btn btn-primary"/>
-        @Html.ActionLink("Voltar","Index", null, new { @class = "btn btn-primary" })
     </div>
 </div>
 }

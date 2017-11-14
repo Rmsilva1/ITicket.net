@@ -11,10 +11,7 @@ namespace ITicket.Contexts
     {
         public EFContext() : base("Asp_Net_MVC_CS")
         {
-            Database
-                .SetInitializer<EFContext>(
-                    new MigrateDatabaseToLatestVersion<EFContext,
-                    Migrations.Configuration>());
+            Database.SetInitializer<EFContext>(new MigrateDatabaseToLatestVersion<EFContext,Migrations.Configuration>());
         }
 
         public DbSet<Empresa> Empresas { get; set; }

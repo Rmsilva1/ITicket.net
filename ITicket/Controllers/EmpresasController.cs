@@ -97,7 +97,6 @@ namespace ITicket.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-
             Empresa empresa = context.Empresas.Find(id);
             context.Empresas.Remove(empresa);
             context.SaveChanges();
